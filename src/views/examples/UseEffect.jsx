@@ -67,16 +67,7 @@ const UseEffect = (props) => {
 
                 </div>
 
-                
-                <SectionTitle title="ex #2"/>
-                <div className="center">
-                    <div>
-                    <span className="text">Status</span>
-                    <span className="text red">{status}</span>
-                    </div>
-
-
-                </div>
+              
             
         </div>
     )
