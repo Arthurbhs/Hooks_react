@@ -39,6 +39,14 @@ const UseEffect = (props) => {
   
       }, [fatorial] )
 
+      const [status, setStatus] = useState("impar")
+
+      useEffect(function() {
+           setStatus(number % 2 === 0 ? "par" : "impar")
+      }, [number])
+
+
+
     return (
         <div className="UseEffect">
             <PageTitle
@@ -58,10 +66,16 @@ const UseEffect = (props) => {
                   onChange={e => setNumber(e.target.value)}/>
 
                 </div>
+
+                
                 <SectionTitle title="ex #2"/>
                 <div className="center">
+                    <div>
+                    <span className="text">Status</span>
+                    <span className="text red">{status}</span>
+                    </div>
 
-                    
+
                 </div>
             
         </div>
