@@ -1,6 +1,8 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import PageTitle from '../../components/layout/PageTitle'
+import SectionTitle from '../../components/layout/SectionTitle'
 import DataContext from '../../Data/DataConntext'
+import { appContext } from '../../Data/store'
 const UseContext = (props) => {
 
     function addNumber(delta) {
@@ -10,6 +12,15 @@ const UseContext = (props) => {
         })
     }
 
+const {number, text, setNumber, setText} = useContext(appContext)
+
+useEffect(function() {
+    if(number > 1250){
+        setText('nhe!!!')
+    }
+    }, [number])
+
+
    const {state, setState} =  useContext(DataContext)
     return (
         <div className="UseContext">
@@ -17,7 +28,7 @@ const UseContext = (props) => {
                 title="Hook UseContext"
                 subtitle="Aceita um objeto de contexto e retorna o valor atual do contexto!"
             />
-           
+              <SectionTitle title="EX#1"/>
              <div className="center">
             <span className="text">{state.text}</span>
             </div>
@@ -29,6 +40,17 @@ const UseContext = (props) => {
             onClick={() => addNumber(-1) }>-1</button>
             <button className="btn"
             onClick={() => addNumber(+1) }>+1</button>
+            </div>
+            <SectionTitle title="EX#2"/>
+            <div className="center">
+                <span className="text">{text}</span>
+             <span className='text'>{number}</span>
+            </div>
+            <div className="center">
+            <button className='btn'
+            onClick={() => setNumber(number -1)}>-1</button>
+            <button className='btn'
+            onClick={() => setNumber(number +1)}>+1</button>
             </div>
         </div>
        
